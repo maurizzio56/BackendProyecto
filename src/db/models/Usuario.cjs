@@ -26,7 +26,7 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue: 'Empleado',
     },
   }, {
-    tableName: 'Usuarios',
+    tableName: 'usuarios',
   });
 
   return Usuario;

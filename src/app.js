@@ -9,8 +9,19 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// Importar rutas
 const usuarioRoutes = require('./routes/usuarioRoutes');
+const productoRoutes = require('./routes/productoRoutes');
+const proveedorRoutes = require('./routes/proveedorRoutes');
+const movimientoRoutes = require('./routes/movimientoRoutes');
+const solicitudRoutes = require('./routes/solicitudRoutes');
+
+// Usar rutas
 app.use('/api/usuarios', usuarioRoutes);
+app.use('/api/productos', productoRoutes);
+app.use('/api/proveedores', proveedorRoutes);
+app.use('/api/movimientos', movimientoRoutes);
+app.use('/api/solicitudes', solicitudRoutes);
 
 app.get('/', (req, res) => {
   res.send('Backend funcionando');

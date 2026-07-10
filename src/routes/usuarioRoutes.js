@@ -3,19 +3,7 @@ const router = express.Router();
 const db = require('../db/models/index.cjs');
 const Usuario = db.Usuario;
 
-// Obtener todos los usuarios
-router.get('/', async (req, res) => {
-  try {
-    const usuarios = await Usuario.findAll({
-      attributes: ['id', 'nombre', 'email', 'rol'],
-    });
-    res.json(usuarios);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
-});
-
-// Login
+// Login (directamente en el router)
 router.post('/login', async (req, res) => {
   const { email, password } = req.body;
   try {
@@ -32,6 +20,18 @@ router.post('/login', async (req, res) => {
       email: usuario.email,
       rol: usuario.rol,
     });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// Obtener todos los usuarios
+router.get('/', async (req, res) => {
+  try {
+    const usuarios = await Usuario.findAll({
+      attributes: ['id', 'nombre', 'email', 'rol'],
+    });
+    res.json(usuarios);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
