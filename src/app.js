@@ -15,6 +15,7 @@ const productoRoutes = require('./routes/productoRoutes');
 const proveedorRoutes = require('./routes/proveedorRoutes');
 const movimientoRoutes = require('./routes/movimientoRoutes');
 const solicitudRoutes = require('./routes/solicitudRoutes');
+const dashboardRoutes = require('./routes/dashboardRoutes');
 
 // Usar rutas
 app.use('/api/usuarios', usuarioRoutes);
@@ -22,6 +23,7 @@ app.use('/api/productos', productoRoutes);
 app.use('/api/proveedores', proveedorRoutes);
 app.use('/api/movimientos', movimientoRoutes);
 app.use('/api/solicitudes', solicitudRoutes);
+app.use('/api/dashboard', dashboardRoutes);
 
 app.get('/', (req, res) => {
   res.send('Backend funcionando');
