@@ -1,6 +1,9 @@
 const express = require('express');
 const router = express.Router();
+const { getProveedores, createProveedor, deleteProveedor } = require('../controllers/proveedorController.cjs');
 
-// Llenar
+router.get('/', getProveedores);
+router.post('/', createProveedor);
+router.delete('/:id', deleteProveedor);
 
 module.exports = router;
