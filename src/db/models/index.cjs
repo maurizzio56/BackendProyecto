@@ -31,11 +31,25 @@ fs
     db[model.name] = model;
   });
 
+
 Object.keys(db).forEach(modelName => {
   if (db[modelName].associate) {
     db[modelName].associate(db);
   }
 });
+
+
+db.Movimiento.belongsTo(db.Producto, {
+  foreignKey: 'producto_id',
+  as: 'producto'
+});
+
+
+db.Producto.hasMany(db.Movimiento, {
+  foreignKey: 'producto_id',
+  as: 'movimientos'
+});
+
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
